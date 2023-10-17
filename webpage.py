@@ -32,20 +32,20 @@ def app():
     # Load the trained model based on user preference
     model_preference=st.selectbox('Select preferred model: ',['Basic CNN','ResNet101V2','InceptionV3','InceptionResNetV2'])
     if model_preference == 'Basic CNN':
-        model_path = r'D:\5C_Networks\models\cardiomaagly_1.h5'        
+        model_path = r'cardiomaagly_1.h5'        
     elif model_preference == 'InceptionV3':
-        model_path=r'D:\5C_Networks\models\cardiomagly_InceptionV3.h5'
+        model_path=r'cardiomagly_InceptionV3.h5'
     elif model_preference == 'InceptionResNetV2':
-        model_path=r'models/cardiomagly_InceptionResNetV2.h5'
+        model_path=r'cardiomagly_InceptionResNetV2.h5'
     else:
-        model_path = r'D:\5C_Networks\models\cardiomagly_ResNet101V2.h5'
+        model_path = r'cardiomagly_ResNet101V2.h5'
     model = tf.keras.models.load_model(model_path)
 
     # Define the classes that the model can predict
-    if model_preference == 'Basic CNN':
-        classes = ['Not Cardiomegaly','Cardiomegaly']
-    else:
+    if model_preference == 'Basic CNN':       
         classes = ['Cardiomegaly','Not Cardiomegaly']
+    else:
+        classes = ['Not Cardiomegaly','Cardiomegaly']
 
 
     
